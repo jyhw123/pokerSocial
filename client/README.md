@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# 🃏 PokerSocial
+This was a personal MERN project with CRU functionalities that I built in a week (with a lot of help from youtube)! It's a social media site for poker players to share their games. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Poker Social is a social media app for poker players by poker player(s)! Played a good game recently? Flopped a full house? Share your game and let your friends know!
 
-## Available Scripts
 
-In the project directory, you can run:
+# 👨‍💻 Tech Stack:
+<li><b>Front End:</b> React, Material-UI</li>
+<li><b>Back End:</b>  Express.js/Node.js</li>
+<li><b>Persistent Storage (Database):</b>  MongoDB</li>
+<li><b>State Management:</b>  Redux</li>
+<li><b>Form Handling/Validation:</b> Multer, Formik</li>
+<li><b>Password Hashing, Encryption:</b> BCrypt, JWT</li>
 
-### `npm start`
+# 📀 Install
+If you want to try and run this for any reason, use the following: 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1) To get a local copy of the code, clone it using git
+```
+git clone http://url-to-my-repo
+```
+2) Install dependencies:
+```
+npm install
+```
+3) Now, you can start the local client-server app by running:
+```
+// run this in both client and server directories 
+npm run start
+```
+# 📌 Main Features 
+### 1️⃣ Home Page
+The home feed shows all your friends' posts (and yours!). Features include:
+<li>My profile widget</li>
+<li>Posting widget (Post function)</li>
+<li>Friends List (Add/remove function)</li>
+<li> Navigation bar (Switch day/night mode function)</li>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+User-specific public information is stored on MongoDB and a GET request populates our redux store with the necessary information. Posts on the feed are also populated via similar HTTP requests. See [more] (#http-endpoints)
 
-### `npm test`
+#### Day Mode
+<img width="1427" alt="Screenshot 2023-03-14 at 12 19 19 AM" src="https://user-images.githubusercontent.com/60395624/224762769-a1b57f93-3bf6-47da-85e7-debed4bf4332.png">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Night Mode
+<img width="1424" alt="Screenshot 2023-03-14 at 12 19 32 AM" src="https://user-images.githubusercontent.com/60395624/224763046-eb7fb58c-b46d-4f91-ae93-3c4edc2a7445.png">
 
-### `npm run build`
+### 2️⃣ Posting about a session
+To tell everyone about your last game, enter in the following information:
+<li>Buy in amount</li>
+<li>Cash out amount</li>
+<li>Hours played</li>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+... and the app will calculate some key statistics to show your friends! 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Enter session information
+<img width="640" alt="Screenshot 2023-03-14 at 11 12 45 AM" src="https://user-images.githubusercontent.com/60395624/224883616-37e727ed-db26-4fb3-bb7c-4e7a5ecb0583.png">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Upload a photo of the game if you want!
+<img width="631" alt="Screenshot 2023-03-14 at 11 13 39 AM" src="https://user-images.githubusercontent.com/60395624/224883790-27d1a5c1-1d52-4865-b117-e7167553a63b.png">
 
-### `npm run eject`
+#### Your post will look something like this:
+![Screenshot 2023-03-14 at 11 15 37 AM](https://user-images.githubusercontent.com/60395624/224884032-50ef9dd5-53a1-47c7-8d91-8c2461304850.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Like and comment on your friends posts!
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# HTTP Endpoints
+|CRUD|HTTP Method|URL|Description|
+|---|---|---|---|
+|CREATE|`POST`|http://localhost:3000/auth/register| Create and register new User|
+|CREATE|`POST`|http://localhost:3000/auth/login| Create login request and auth credentials|
+|CREATE|`POST`|http://localhost:3000/posts| Create new social post by User|
+|READ|`GET`|http://localhost:3000/posts| Get feed posts|
+|READ|`GET`|http://localhost:3000/posts/{userId}/posts| Get specific user's posts|
+|READ|`GET`|http://localhost:3000/users/{userId}| Get specific user's public information|
+|READ|`GET`|http://localhost:3000/users/{userId}/friends| Get specific user's friends list|
+|UPDATE|`PATCH`|http://localhost:3000/posts/{postID}/like| Update likes on specific post|
+|UPDATE|`PATCH`|http://localhost:3000/users/{userId}/{friendID}| Add or remove a friend|
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

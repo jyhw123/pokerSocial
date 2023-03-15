@@ -23,7 +23,7 @@ git clone http://url-to-my-repo
 ```
 npm install
 ```
-3) Now, you can start the local client-server app by running:
+3) Now, you can start the local client-server app by running the command below. (P.s: since this is a `create-react-app` project, running the script below triggers `react-scripts build` which uses webpack as a bundler under the hood)
 ```
 // run this in both client and server directories 
 npm run start
